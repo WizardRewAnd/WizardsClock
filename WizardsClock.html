@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS - Digital Clock</title>
+    <style type = "text/css"> 
+    body{
+      background: #000;
+    }
+    .clock{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: #fff;
+      font-size: 90px;
+      border: 2px solid #ccc;
+      padding: 20px;
+    }
+</style>
+  </head>
+  <body>
+<div id = "MyClock" class ="clock"></div>
+<script type ="text/javascript">
+  function showTime(){//блок функции функция шоуТАйм(произвольное название)
+    var date = new Date(); //Объект ДЕЙТ УНИКАЛЬНЫЙ 
+    var h = date.getHours();//часы
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var session = "AM";//* Сессия хуессия 
+    if (h == 0){//Самая сложная часть - аналоговое время 
+      h = 12;
+    }
+    if(h > 12){
+      h =h - 12;
+      session = "PM";//Вечер
+    }
+    if (h <10 ){
+      h = "0" + h;//шоб цифра одна не остовалась 
+    }
+    if (m <10){//тоже самое 
+      m = "0" + m;
+    }
+    if (s < 10){//и тут 
+      s = "0" + s;
+    }
+    var time = h + ":" + m + ":" + s + " " + session;//строчка вывода 
+    document.getElementById("MyClock").innerText = time;//корректный вывод в различных браузерах(УТОЧНИТЬ)
+    document.getElementById("MyClock").textContent = time;//ТОЖЕ САМОЕ 
+
+
+setTimeout(showTime, 1000);// для задержки
+  }
+
+showTime(); // вывод времени
+
+</script>
+  </body>
+</html>
