@@ -21,37 +21,37 @@
   <body>
 <div id = "MyClock" class ="clock"></div>
 <script type ="text/javascript">
-  function showTime(){//блок функции функция шоуТАйм(произвольное название)
-    var date = new Date(); //Объект ДЕЙТ УНИКАЛЬНЫЙ 
-    var h = date.getHours();//часы
+  function showTime(){
+    var date = new Date(); 
+    var h = date.getHours();
     var m = date.getMinutes();
     var s = date.getSeconds();
-    var session = "AM";//* Сессия хуессия 
-    if (h == 0){//Самая сложная часть - аналоговое время 
+    var session = "AM";
+    if (h == 0){
       h = 12;
     }
     if(h > 12){
       h =h - 12;
-      session = "PM";//Вечер
+      session = "PM";
     }
     if (h <10 ){
-      h = "0" + h;//шоб цифра одна не остовалась 
+      h = "0" + h;
     }
-    if (m <10){//тоже самое 
+    if (m <10){
       m = "0" + m;
     }
-    if (s < 10){//и тут 
+    if (s < 10){
       s = "0" + s;
     }
-    var time = h + ":" + m + ":" + s + " " + session;//строчка вывода 
-    document.getElementById("MyClock").innerText = time;//корректный вывод в различных браузерах(УТОЧНИТЬ)
-    document.getElementById("MyClock").textContent = time;//ТОЖЕ САМОЕ 
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClock").innerText = time;
+    document.getElementById("MyClock").textContent = time;
 
 
-setTimeout(showTime, 1000);// для задержки
+setTimeout(showTime, 1000);
   }
 
-showTime(); // вывод времени
+showTime();
 
 </script>
   </body>
